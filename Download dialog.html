@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dialog Download</title>
+<style>
+  #progressBar {
+    width: 100%;
+    height: 30px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  #progress {
+    width: 0%;
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+  }
+</style>
+</head>
+<body>
+  <h2>Dialog Download</h2>
+  <button onclick="startDownload()">Start Download</button>
+  <div id="progressBar">
+    <div id="progress">0%</div>
+  </div>
+
+<script>
+  function startDownload() {
+    var progressBar = document.getElementById('progress');
+    var progress = 0;
+    var interval = setInterval(function() {
+      progress += 1;
+      progressBar.style.width = progress + '%';
+      progressBar.innerHTML = progress + '%';
+      if (progress >= 100) {
+        clearInterval(interval);
+        alert('Download Selesai!');
+      }
+    }, 50);
+  }
+</script>
+</body>
+</html>
